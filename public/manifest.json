@@ -7,6 +7,19 @@
   "orientation": "landscape",
   "scope": "/",
   "start_url": "/",
+  "screenshots": [
+    {
+      "src": "/images/screenshots/desktop.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/images/screenshots/mobile.png",
+      "sizes": "411x883",
+      "type": "image/png"
+    }
+  ],
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
