@@ -1,11 +1,11 @@
-const nextConfig = require("next-pwa")({
-  pwa: {
-    dest: "public",
-  },
+const withPWA = require("next-pwa")({
+  dest: "public",
 })
 
-module.exports = nextConfig({
+const nextConfig = withPWA({
   images: {
     domains: ["image.tmdb.org"],
   },
 });
+
+module.exports = nextConfig;
