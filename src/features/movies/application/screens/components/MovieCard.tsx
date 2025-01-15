@@ -11,23 +11,23 @@ export const MovieCard = ({ movie }: { movie: Movie }) => {
     const { genres } = useGenres()
     return (
         <Card>
-            <CardHeader>
-                {movie.release_date.split("-")[0]} - {movie.title}
-                <Chip>
+            <CardHeader className="flex gap-2">
+                <h1 className="text-xl font-bold">
+                    {movie.release_date.split("-")[0]} - {movie.title}
+                </h1>
+                <Chip variant="bordered">
                     {movie.vote_average.toFixed(1)}
                 </Chip>
-                <div>
-                    <h1>
-                        {movie.overview}
-                    </h1>
-                </div>
             </CardHeader>
-            <CardBody>
+            <CardBody >
                 <Image alt="Movie poster" width={200} height={200} src={`${IMAGE_URL}/w500/${movie.poster_path}`} />
+                <h1>
+                    {movie.overview}
+                </h1>
             </CardBody>
-            <CardFooter>
+            <CardFooter className="flex gap-2">
                 {movie.genre_ids.map((genre) => (
-                    <Chip key={genre} >
+                    <Chip variant="flat" color="primary" key={genre} >
                         {genres.find(({ id }) => id === genre)?.name}
                     </Chip>
                 ))}
@@ -44,7 +44,7 @@ interface FLatListProps<T> {
 
 export function FlatList<T>({ data, keyExtractor, renderItem }: FLatListProps<T>) {
     return (
-        <div>
+        <div className="w-full grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {data.map((item) =>
             (<div key={keyExtractor(item)}>
                 {
