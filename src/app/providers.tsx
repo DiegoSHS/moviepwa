@@ -1,7 +1,7 @@
 "use client"
 
 import { GenresProvider } from '@/features/genres/application/providers/genresProvider'
-import { MoviesProvider } from '@/features/movies/application/providers/moviesProvier'
+import { MoviesProvider } from '@/features/movies/application/providers/moviesProvider'
 import { TvProvider } from '@/features/tv/application/providers/tvProvider'
 import { NextUIProvider } from '@nextui-org/react'
 

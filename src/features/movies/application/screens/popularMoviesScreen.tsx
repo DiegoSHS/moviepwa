@@ -1,5 +1,5 @@
 "use client"
-import { useMovies } from "../providers/moviesProvier"
+import { useMovies } from "../providers/moviesProvider"
 import { useEffect } from "react"
 import { useGenres } from "@/features/genres/application/providers/genresProvider"
 import { MovieList } from "./components/MovieCard"
