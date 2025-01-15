@@ -1,3 +1,4 @@
+
 import { PopularMoviesScreen } from "@/features/movies/application/screens/popularMoviesScreen";
 
 export default function Home() {

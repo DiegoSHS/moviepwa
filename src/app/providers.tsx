@@ -1,4 +1,4 @@
-// app/providers.tsx
+"use client"
 
 import { GenresProvider } from '@/features/genres/application/providers/genresProvider'
 import { MoviesProvider } from '@/features/movies/application/providers/moviesProvier'

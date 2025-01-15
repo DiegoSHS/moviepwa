@@ -45,7 +45,13 @@ interface FLatListProps<T> {
 export function FlatList<T>({ data, keyExtractor, renderItem }: FLatListProps<T>) {
     return (
         <div>
-            {data.map((item) => renderItem({ item }))}
+            {data.map((item) =>
+            (<div key={keyExtractor(item)}>
+                {
+                    renderItem({ item })
+                }
+            </div>
+            ))}
         </div>
     )
 }
