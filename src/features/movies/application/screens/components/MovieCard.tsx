@@ -10,24 +10,30 @@ import { JSX } from "react"
 export const MovieCard = ({ movie }: { movie: Movie }) => {
     const { genres } = useGenres()
     return (
-        <Card>
-            <CardHeader className="flex gap-2">
-                <h1 className="text-xl font-bold">
-                    {movie.release_date.split("-")[0]} - {movie.title}
-                </h1>
-                <Chip variant="bordered">
-                    {movie.vote_average.toFixed(1)}
-                </Chip>
+        <Card isPressable isFooterBlurred classNames={{
+            footer: "justify-between overflow-hidden py-1 absolute bottom-0 shadow-small z-10 flex-wrap",
+            header: "absolute z-10 top-0 flex-col items-start backdrop-blur shadow-small",
+        }}>
+            <Image
+                className="object-cover"
+                style={{ borderRadius: 10 }}
+                alt="Movie poster"
+                width={300}
+                height={200}
+                src={`${IMAGE_URL}/original/${movie.poster_path}`}
+                loading="lazy"
+            />
+            <CardHeader className="flex flex-row gap-2 justify-between">
+                <h3 className="text-white font-medium text-md">
+                    {movie.title}
+                </h3>
+                <h3 className="text-white/60 uppercase font-bold">
+                    {movie.release_date.split("-")[0]}
+                </h3>
             </CardHeader>
-            <CardBody >
-                <Image alt="Movie poster" width={200} height={200} src={`${IMAGE_URL}/w500/${movie.poster_path}`} />
-                <h1>
-                    {movie.overview}
-                </h1>
-            </CardBody>
-            <CardFooter className="flex gap-2">
+            <CardFooter>
                 {movie.genre_ids.map((genre) => (
-                    <Chip variant="flat" color="primary" key={genre} >
+                    <Chip variant="light" key={genre} >
                         {genres.find(({ id }) => id === genre)?.name}
                     </Chip>
                 ))}
@@ -44,7 +50,7 @@ interface FLatListProps<T> {
 
 export function FlatList<T>({ data, keyExtractor, renderItem }: FLatListProps<T>) {
     return (
-        <div className="w-full grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div>
             {data.map((item) =>
             (<div key={keyExtractor(item)}>
                 {
