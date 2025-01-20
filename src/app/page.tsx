@@ -1,4 +1,4 @@
-""use client"
+"use client";
 import { PopularMoviesScreen } from "@/features/movies/application/screens/popularMoviesScreen";
 import { Button, Navbar, NavbarBrand, NavbarContent } from "@nextui-org/react";
 import Link from "next/link";
