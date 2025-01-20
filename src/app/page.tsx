@@ -4,36 +4,6 @@ import { Button, Navbar, NavbarBrand, NavbarContent } from "@nextui-org/react";
 import Link from "next/link";
 import { ReactNode, useEffect, useState } from "react";
 
-const RandomColorGenerator = () => {
-  return "#" + Math.floor(Math.random() * 16777215).toString(16);
-}
-
-const InitBgColors = () => {
-  return {
-    from: RandomColorGenerator(),
-    to: RandomColorGenerator()
-  }
-}
-export const RandomBackgroundColorAnimated = ({ children }: { children: ReactNode }) => {
-  const [backgroundColors, setBackgroundColors] = useState(InitBgColors);
-  const useChangeColor = () => {
-    setBackgroundColors(InitBgColors());
-  }
-  useEffect(() => {
-    const interval = setInterval(useChangeColor, 3000)
-    return () => clearInterval(interval)
-  }, []);
-  return (
-    <div style={{
-      backgroundImage: `linear-gradient(45deg, ${backgroundColors.from}, ${backgroundColors.to})`
-    }} className={
-      `h-screen w-screen transition-all duration-1500`
-    }>
-      {children}
-    </div >
-  )
-}
-
 export default function Home() {
   return (
     <div className="grid">
