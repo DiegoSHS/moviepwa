@@ -14,7 +14,7 @@ const InitBgColors = () => {
     to: RandomColorGenerator()
   }
 }
-const RandomBackgroundColorAnimated = ({ children }: { children: ReactNode }) => {
+export const RandomBackgroundColorAnimated = ({ children }: { children: ReactNode }) => {
   const [backgroundColors, setBackgroundColors] = useState(InitBgColors);
   const useChangeColor = () => {
     setBackgroundColors(InitBgColors());
